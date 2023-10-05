@@ -26,11 +26,11 @@
                 <tr>
                     <td>{{ $article->id }}</td>
                     <td>{{ $article->title }}</td>
-                    <td>{{ Str::words($article->content, 5, '...') }}</td>
-                    <td><img src="{{ $article->image }}" alt=""></td>
-                    <td>{{ $article->user_id }}</td>
-                    <td>{{ $article->category_id }}</td>
-                    <td>
+                    <td style="width: 373px">{{ Str::words($article->content, 5, '...') }}</td>
+                    <td><img width="80" src="{{ $article->image }}" alt=""></td>
+                    <td>{{ $article->user->id }}</td>
+                    <td>{{ $article->category->name ?? 'Opes Category Deleted' }}</td>
+                    <td style="width: 150px">
                         <a class="btn btn-info btn-sm" href="{{ route('admin.articles.edit', $article->id) }}"><i
                                 class="fas fa-edit"></i></a>
                         <a class="btn btn-primary btn-sm" href="{{ route('admin.articles.show', $article->id) }}"><i

@@ -6,10 +6,14 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 
-Route::prefix('admin/')->name('admin.')->group(function () {
+Route::middleware('auth', 'is_admin:admin')->prefix('admin/')->name('admin.')->group(function () {
+    Route::get('/', [NewsController::class, 'dashboard']);
     Route::get('dashboard', [NewsController::class, 'dashboard'])->name('dashboard');
 
-
+    // article
+    Route::get('articles/trash', [ArticleController::class, 'trash'])->name('articles.trash');
+    Route::get('articles/restore/{article}', [ArticleController::class, 'restore'])->name('articles.restore');
+    Route::delete('articles/forcedelete/{article}', [ArticleController::class, 'forcedelete'])->name('articles.forcedelete');
     Route::resource('articles', ArticleController::class);
 
     // tags

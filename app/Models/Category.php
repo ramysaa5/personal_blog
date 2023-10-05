@@ -14,6 +14,6 @@ class Category extends Model
 
     function article()
     {
-        $this->hasOne(Article::class)->withDefault();
+        return  $this->hasOne(Article::class)->withDefault();
     }
 }

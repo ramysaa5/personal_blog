@@ -10,6 +10,9 @@ class Tag extends Model
 {
     use HasFactory, SoftDeletes;
 
-
+    function articles()
+    {
+        return $this->belongsToMany(Article::class);
+    }
     protected $guarded = [];
 }

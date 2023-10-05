@@ -88,6 +88,7 @@ class TagController extends Controller
 
         // Update in Database
         $data = $request->except('_token');
+
         $tag->update($data);
 
         // redirect to index page
