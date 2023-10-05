@@ -106,9 +106,7 @@ class TagController extends Controller
         $tag->delete();
 
 
-        return redirect()->route('admin.tags.index')
-            ->with('msg', 'Tags Deleted Successfully')
-            ->with('type', 'danger');
+        return 'Deleted';
     }
 
 

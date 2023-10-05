@@ -158,9 +158,7 @@ class ArticleController extends Controller
 
         $article->delete();
 
-        return redirect()->route('admin.articles.index')
-            ->with('msg', 'Article Deleted Successfully')
-            ->with('type', 'success');
+        return 'Deleted';
     }
 
     function trash()
